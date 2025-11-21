@@ -32,7 +32,7 @@ struct ContentView: View {
                 
                 Button {
                     Task {
-                        try await generateTopCartoons(currentGenrate: currentGenre)
+                        try await generate10Cartoons(currentGenrate: currentGenre)
                     }
                 } label: {
                     Text("Generate Top 10")
@@ -40,6 +40,7 @@ struct ContentView: View {
                 .tint(.purple)
                 .buttonStyle(.glass)
                 .shadow(radius: 5)
+                .disabled(modelSession.isResponding)
                 
                 if cartoonRecommendations.isEmpty {
                     unavaliableView
@@ -48,20 +49,14 @@ struct ContentView: View {
                     List {
                         ForEach(cartoonRecommendations) { cartoon in
                             HStack(spacing: 12) {
-                                Image(systemName: "tv.fill")
-                                    .foregroundStyle(.tint)
+                                Text(cartoon.randomEMoji)
+                                    .font(.title)
                                 Text(cartoon.title)
                                     .font(.headline)
                                 
-                                Text(cartoon.randomEMoji)
-                                    //.font(.largeTitle)
+                               
                                 Spacer()
                                 Text("Rating: \(String(format: "%.2f", cartoon.rating))")
-
-                                    
-                                    
-                               
-                                    
                             }
                             .padding(.vertical, 6)
                         }
@@ -106,7 +101,7 @@ struct ContentView: View {
     }
     
     func generate10Cartoons(currentGenrate: CartoonCategory) async throws {
-        for cartoon in 0..<10 {
+        for _ in 0..<10 {
             try await generateTopCartoons(currentGenrate: currentGenrate)
         }
     }
