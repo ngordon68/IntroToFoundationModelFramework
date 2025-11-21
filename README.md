@@ -8,7 +8,7 @@ Today we're going to implement MusicKit to fetch songs from an artist and play t
 
 
 # User Story
-- As a user, I want to be able to genenrate top 10 recommendations based off a genre
+- As a user, I want to be able to genenrate a cartoon from a given topic
 
 # Expected Outcome
 
