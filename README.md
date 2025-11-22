@@ -21,3 +21,5 @@ Today we're going to implement MusicKit to fetch songs from an artist and play t
 # Resources
 - [Foundation Model Resource ](https://developer.apple.com/documentation/FoundationModels)
 - [Sample Project #1](https://developer.apple.com/documentation/foundationmodels/adding-intelligent-app-features-with-generative-models)
+- [Swift Concurrency]( https://www.youtube.com/@SwiftfulThinking)
+
